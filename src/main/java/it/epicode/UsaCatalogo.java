@@ -1,8 +1,11 @@
 package it.epicode;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class UsaCatalogo {
     public static void main(String[] args) {
-        //Logger logger = LoggerFactory.getLogger("Progetto");
+        Logger logger = LoggerFactory.getLogger("Progetto");
 
         Libro libro1 = new Libro(0, "Libro 1", 2024, 100, "Gabriele", "Fantasy");
         Libro libro2 = new Libro(0, "Libro 2", 2020, 100, "Luca", "Fantasy");
@@ -49,8 +52,9 @@ public class UsaCatalogo {
             catalogo.aggiungiPubblicazione(rivista8);
             catalogo.aggiungiPubblicazione(rivista9);
             catalogo.aggiungiPubblicazione(rivista10);
+            catalogo.aggiungiPubblicazione(rivista10);
         } catch (Exception e) {
-            //logger.error(e.getMessage());
+            logger.error(e.getMessage());
             System.out.println(e);
         }
 

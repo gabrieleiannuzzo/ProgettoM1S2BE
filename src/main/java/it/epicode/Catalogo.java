@@ -1,6 +1,8 @@
 package it.epicode;
 
 import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +12,7 @@ import java.util.stream.Collectors;
 
 public class Catalogo {
     private HashMap<Long, Pubblicazione> catalogo = new HashMap();
+    private Logger logger = LoggerFactory.getLogger("Progetto");
 
     public void aggiungiPubblicazione(Pubblicazione pubblicazione) throws LibroGiaInseritoException, RivistaGiaInseritaException {
         if (catalogo.get(pubblicazione.getIsbn()) != null) {
@@ -63,7 +66,6 @@ public class Catalogo {
     };
 
     public void salvaSuDisco(){
-        //Logger logger = new LoggerFactory("Progetto");
         File file = new File("files/file.txt");
         List<Pubblicazione> listaPubblicazioni = new ArrayList<>(catalogo.values());
         String stringaPubblicazioni = listaPubblicazioni.stream().map(p -> {
@@ -79,7 +81,7 @@ public class Catalogo {
         try {
             FileUtils.writeStringToFile(file, stringaPubblicazioni, Charset.defaultCharset(), true);
         } catch (IOException e){
-            //logger.error(e);
+            logger.error(e.getMessage());
             System.out.println(e);
         }
     };
@@ -116,7 +118,7 @@ public class Catalogo {
 
             return listaPubblicazioni;
         } catch (IOException e) {
-            //logger.error(e.getMessage());
+            logger.error(e.getMessage());
             System.out.println(e);
         }
 
