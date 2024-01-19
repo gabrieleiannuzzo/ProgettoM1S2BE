@@ -1,8 +1,6 @@
-package org.example;
+package it.epicode;
 
 public class LibroGiaInseritoException extends Exception{
-    private String message;
-
     public LibroGiaInseritoException(String message){
         super(message);
     }

@@ -1,7 +1,6 @@
-package org.example;
+package it.epicode;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Random;
 
 public abstract class Pubblicazione {
@@ -15,7 +14,11 @@ public abstract class Pubblicazione {
         Random random = new Random();
         if (isbn == 0) {
             while (true) {
-                if (listaIsbn.add(random.nextLong())) break;
+                long randomNumber = random.nextLong(999999999);
+                if (listaIsbn.add(randomNumber)) {
+                    this.isbn = randomNumber;
+                    break;
+                }
             }
         } else {
             this.isbn = isbn;
@@ -65,5 +68,12 @@ public abstract class Pubblicazione {
         Pubblicazione.listaIsbn = listaIsbn;
     }
 
-    // Non inserisco il metodo toString perchè lo inserirò nelle sottoclassi
+    @Override
+    public String toString() {
+        return "{" +
+                "isbn=" + isbn +
+                ", titolo='" + titolo + '\'' +
+                ", annoPubblicazione=" + annoPubblicazione +
+                ", numeroPagine=" + numeroPagine + ", ";
+    }
 }

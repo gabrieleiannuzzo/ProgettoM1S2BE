@@ -1,4 +1,4 @@
-package org.example;
+package it.epicode;
 
 public enum Periodicita {
     SETTIMANALE,

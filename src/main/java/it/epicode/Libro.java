@@ -1,4 +1,4 @@
-package org.example;
+package it.epicode;
 
 public class Libro extends Pubblicazione{
     private String autore, genere;
@@ -27,7 +27,7 @@ public class Libro extends Pubblicazione{
 
     @Override
     public String toString() {
-        return "Libro{" +
+        return  super.toString() +
                 "autore='" + autore + '\'' +
                 ", genere='" + genere + '\'' +
                 '}';

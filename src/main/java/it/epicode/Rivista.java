@@ -1,4 +1,4 @@
-package org.example;
+package it.epicode;
 
 public class Rivista extends Pubblicazione{
     private Periodicita periodicita;
@@ -18,7 +18,7 @@ public class Rivista extends Pubblicazione{
 
     @Override
     public String toString() {
-        return "Rivista{" +
+        return  super.toString() +
                 "periodicita=" + periodicita +
                 '}';
     }
